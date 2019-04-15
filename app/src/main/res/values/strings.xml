@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Water.me</string>
+    <string name="get_started">Get started</string>
+    <string name="already_a_member">Already a member? Log in</string>
+    <string name="title_activity_login">Log in</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_out">Sign out</string>
+    <string name="settings_menu_item">Settings</string>
+    <string name="plants_menu_item">Plants</string>
+    <string name="settings_item">SETTINGS</string>
+    <string name="plants_item">ALL PLANTS</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="title_activity_main_user">MainUserActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1092990632104",
+    "firebase_url": "https://waterme-1.firebaseio.com",
+    "project_id": "waterme-1",
+    "storage_bucket": "waterme-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092990632104:android:7a0d049ab6c7953d",
+        "android_client_info": {
+          "package_name": "com.example.deyana.waterme_v01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092990632104-81jm0co9hf45rg4elsf27r3l32t37u7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZGMqBKl_a0JnWHONTnwBGtWt1eodALAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092990632104-81jm0co9hf45rg4elsf27r3l32t37u7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
