@@ -3,75 +3,44 @@ package com.example.deyana.waterme_v01;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
-import java.util.ArrayList;
-import java.util.UUID;
+public class MainUserActivity extends AppCompatActivity{
 
-public class MainUserActivity extends AppCompatActivity implements PlantAdapter.OnListItemClickListener{
-
-    private TextView mTextMessage;
-    private RecyclerView content;
-    private RecyclerView.Adapter contentAdapter;
+    private LinearLayout fragmentContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_user);
+        fragmentContainer = findViewById(R.id.fragment_container);
 
-        content = findViewById(R.id.recyclerView);
-        content.hasFixedSize();
-        content.setLayoutManager(new LinearLayoutManager(this));
-        contentAdapter = new PlantAdapter(loadPlantsList(), this);
-        content.setAdapter(contentAdapter);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PlantsListFragment()).commit();
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-//        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-//    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-//
-//        @Override
-//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//            switch (item.getItemId()) {
-//                case R.id.navigation_home:
-//                    mTextMessage.setText(R.string.plants_item);
-//                    return true;
-//                case R.id.navigation_settings:
-//                    mTextMessage.setText(R.string.settings_item);
-//                    return true;
-//            }
-//            return false;
-//        }
-//    };
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-    public ArrayList<Plant> loadPlantsList(){
-        UUID defaultUserId = UUID.randomUUID();
-        ArrayList<Plant> plants = new ArrayList<>();
-        plants.add(new Plant(defaultUserId, "Peace Lily", 3));
-        plants.add(new Plant(defaultUserId, "Aloe Vera", 7));
-        plants.add(new Plant(defaultUserId, "Moth Orchid", 9));
-        plants.add(new Plant(defaultUserId, "Snake Plant", 28));
-        plants.add(new Plant(defaultUserId, "Asparagus Fern", 28));
-        plants.add(new Plant(defaultUserId, "Begonia", 21));
-        plants.add(new Plant(defaultUserId, "Jade Plant", 168));
-        plants.add(new Plant(defaultUserId, "English Ivy", 7));
-        plants.add(new Plant(defaultUserId, "Spider Plant", 7));
-        plants.add(new Plant(defaultUserId, "Peperomia", 10));
-        plants.add(new Plant(defaultUserId, "Yucca", 10));
-        plants.add(new Plant(defaultUserId, "Asparagus Fern", 14));
-        return plants;
-    }
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment selectedFragment = null;
 
-    @Override
-    public void onListItemClick(View view) {
-        //do something
-    }
+            switch (item.getItemId()) {
+                case R.id.navigation_plants:
+                    selectedFragment = new PlantsListFragment();
+                    break;
+                case R.id.navigation_settings:
+                    selectedFragment = new SettingsFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            return true;
+        }
+    };
 }
