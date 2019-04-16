@@ -26,6 +26,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
         return new PlantViewHolder(view);
     }
 
+    //todo change to show next watering date
     @Override
     public void onBindViewHolder(PlantAdapter.PlantViewHolder holder, int position) {
         holder.plantSpecies.setText(plants.get(position).getPlantSpecies());

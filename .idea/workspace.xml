@@ -47,7 +47,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_edit_plant.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_edit_plant.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_plant.xml">
           <provider selected="true" editor-type-id="android-designer2">
             <state />
@@ -61,6 +61,16 @@
                 <element signature="e#3535#3555#0" expanded="true" />
                 <element signature="e#3809#3829#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlantAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/PlantAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1874,7 +1884,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/AddPlantActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/PlantAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/PlantsListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/Plant.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/PlantInfo.java" />
@@ -1883,6 +1892,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_plant_info.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_plant.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/PlantAdapter.java" />
       </list>
     </option>
   </component>
@@ -2099,7 +2109,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1555452564432" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1555452641236" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2147,7 +2157,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1555452564432" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1555452641236" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2330,7 +2340,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1555452564433" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1555452641239" />
       </method>
     </configuration>
     <list size="1">
@@ -2789,14 +2799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/PlantAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="58" column="48" lean-forward="false" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/PlantsListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="707">
@@ -2885,6 +2887,14 @@
             <element signature="e#3535#3555#0" expanded="true" />
             <element signature="e#3809#3829#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/deyana/waterme_v01/PlantAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
