@@ -30,7 +30,12 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".MainUserActivity"
-            android:label="@string/title_activity_main_user"></activity>
+            android:label="@string/title_activity_main_user" />
+        <activity
+            android:name=".AddPlantActivity"
+            android:label="@string/title_activity_add_plant"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".PlantInfo"></activity>
     </application>
 
 </manifest>

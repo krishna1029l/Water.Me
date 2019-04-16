@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:parentActivityName="com.example.myfirstapp.MainUserActivity"
+    tools:context="com.example.deyana.waterme_v01.PlantInfo">
+
+
+    <TextView
+        android:id="@+id/activityTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/plant_info"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/plant_info" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="4dp"
+        android:text="@string/plants_species"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/plantSpeciesHolder"
+        app:layout_constraintEnd_toStartOf="@+id/plantSpeciesHolder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="4dp"
+        android:text="@string/days_between_watering"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/daysBetweenWateringHolder"
+        app:layout_constraintEnd_toStartOf="@+id/daysBetweenWateringHolder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/plantSpeciesHolder"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="117dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/daysBetweenWateringHolder"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/plantSpeciesHolder" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/editPlantButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_plant"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/deletePlantButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/edit_plant" />
+
+        <Button
+            android:id="@+id/deletePlantButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_plant"
+            android:textColor="@color/color9"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/delete_plant" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

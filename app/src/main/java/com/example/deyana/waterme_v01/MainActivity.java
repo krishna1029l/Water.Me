@@ -27,11 +27,12 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser() != null){
-            finish();
-            startActivity(new Intent(getApplicationContext(), MainUserActivity.class));
-        }
+        //todo verify that login is working
+//        firebaseAuth = FirebaseAuth.getInstance();
+//        if(firebaseAuth.getCurrentUser() != null){
+//            finish();
+//            startActivity(new Intent(getApplicationContext(), MainUserActivity.class));
+//        }
 
         setContentView(R.layout.activity_main);
         slideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
@@ -86,5 +87,10 @@ public class MainActivity extends AppCompatActivity{
         startActivity(logIn);
     }
 
+    //todo remove after login is implemented
+    public void onSkipClick(View view){
+        Intent main_user_content = new Intent(this, MainUserActivity.class);
+        startActivity(main_user_content);
+    }
 
 }

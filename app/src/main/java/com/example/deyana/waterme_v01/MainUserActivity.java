@@ -17,11 +17,12 @@ public class MainUserActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_user);
         fragmentContainer = findViewById(R.id.fragment_container);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PlantsListFragment()).commit();
+        Fragment default_fragment = new PlantsListFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, default_fragment).commit();
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

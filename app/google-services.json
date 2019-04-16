@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1092990632104-f14bugqsdiood2bnet8h401snfuk0v3l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.deyana.waterme_v01",
+            "certificate_hash": "10d7ffa365a58aba01fe5ab1e74ba925da72b61a"
+          }
+        },
+        {
           "client_id": "1092990632104-81jm0co9hf45rg4elsf27r3l32t37u7t.apps.googleusercontent.com",
           "client_type": 3
         }

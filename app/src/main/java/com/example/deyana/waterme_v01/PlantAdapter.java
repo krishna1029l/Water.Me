@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,10 +13,15 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
 
     private ArrayList<Plant> plants;
     final private OnListItemClickListener onListItemClickListener;
+    private String plantSpeciesSelected;
 
     public PlantAdapter(ArrayList<Plant> plants, OnListItemClickListener onListItemClickListener) {
         this.plants = plants;
         this.onListItemClickListener = onListItemClickListener;
+    }
+
+    public String getPlantSpeciesSelected(){
+        return plantSpeciesSelected;
     }
 
     @Override
@@ -52,12 +56,11 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
         @Override
         public void onClick(View v) {
             onListItemClickListener.onListItemClick(v);
-            Toast.makeText(v.getContext(), plantSpecies.getText(), Toast.LENGTH_SHORT).show();
+            plantSpeciesSelected = plantSpecies.getText().toString();
         }
     }
 
     public interface OnListItemClickListener {
         void onListItemClick(View view);
     }
-
 }

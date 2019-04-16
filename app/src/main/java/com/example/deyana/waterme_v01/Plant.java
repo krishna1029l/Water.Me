@@ -1,25 +1,40 @@
 package com.example.deyana.waterme_v01;
 
-import java.util.Date;
-import java.util.UUID;
 
 public class Plant {
-    private UUID userUUID;
+    private String userUUID;
     private String plantSpecies;
     private int daysBetweenWatering;
-    private Date lastDateWatered;
+    private String lastDateWatered;
 
-    public Plant(UUID userUUID, String plantSpecies, int daysBetweenWatering) {
+    public Plant() {
+    }
+
+    public Plant(String plantSpecies, int daysBetweenWatering, String lastDateWatered) {
+        this.plantSpecies = plantSpecies;
+        this.daysBetweenWatering = daysBetweenWatering;
+        this.lastDateWatered = lastDateWatered;
+
+    }
+
+    public Plant(String userUUID, String plantSpecies, int daysBetweenWatering) {
         this.userUUID = userUUID;
         this.plantSpecies = plantSpecies;
         this.daysBetweenWatering = daysBetweenWatering;
     }
 
-    public UUID getUserUUID() {
+    public Plant(String userUUID, String plantSpecies, int daysBetweenWatering, String lastDateWatered) {
+        this.userUUID = userUUID;
+        this.plantSpecies = plantSpecies;
+        this.daysBetweenWatering = daysBetweenWatering;
+        this.lastDateWatered = lastDateWatered;
+    }
+
+    public String getUserUUID() {
         return userUUID;
     }
 
-    public void setUserUUID(UUID userUUID) {
+    public void setUserUUID(String userUUID) {
         this.userUUID = userUUID;
     }
 
@@ -39,11 +54,11 @@ public class Plant {
         this.daysBetweenWatering = daysBetweenWatering;
     }
 
-    public Date getLastDateWatered() {
+    public String getLastDateWatered() {
         return lastDateWatered;
     }
 
-    public void setLastDateWatered(Date lastDateWatered) {
+    public void setLastDateWatered(String lastDateWatered) {
         this.lastDateWatered = lastDateWatered;
     }
 }
