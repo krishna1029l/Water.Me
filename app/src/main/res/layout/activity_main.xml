@@ -89,15 +89,6 @@
                 android:textColor="@color/color9"
                 android:textSize="16sp"
                 tools:text="@string/already_a_member" />
-
-            <Button
-                android:id="@+id/skipLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onSkipClick"
-                android:text="Skip @string/common_signin_button_text_longogin"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="528dp" />
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:parentActivityName="com.example.myfirstapp.MainUserActivity"
-    tools:context="com.example.deyana.waterme_v01.AddPlantActivity"
-    tools:layout_editor_absoluteY="25dp">
+    tools:context="com.example.deyana.waterme_v01.EditPlantActivity">
 
     <TextView
         android:id="@+id/activityTitle"
@@ -14,14 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/add_plant"
+        android:text="@string/edit_plant"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/add_plant" />
+        tools:text="@string/edit_plant" />
 
     <TextView
         android:id="@+id/textView"
@@ -83,7 +82,6 @@
         android:layout_marginBottom="17dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:onClick="attemptSavePlant"
         android:text="@string/save_plant"
         android:textColor="@color/color9"
         android:textSize="16sp"

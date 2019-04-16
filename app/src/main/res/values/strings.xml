@@ -18,8 +18,10 @@
     <string name="save_plant">Save plant</string>
 
     <string name="plant_info">PLANT INFORMATION</string>
-    <string name="edit_plant">Edit plant</string>
     <string name="delete_plant">Delete plant</string>
+
+    <string name="edit_plant_2">EDIT PLANT</string>
+    <string name="edit_plant">Edit plant</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

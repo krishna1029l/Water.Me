@@ -14,7 +14,6 @@ public class Plant {
         this.plantSpecies = plantSpecies;
         this.daysBetweenWatering = daysBetweenWatering;
         this.lastDateWatered = lastDateWatered;
-
     }
 
     public Plant(String userUUID, String plantSpecies, int daysBetweenWatering) {
@@ -60,5 +59,15 @@ public class Plant {
 
     public void setLastDateWatered(String lastDateWatered) {
         this.lastDateWatered = lastDateWatered;
+    }
+
+    @Override
+    public String toString() {
+        return "Plant{" +
+                "userUUID='" + userUUID + '\'' +
+                ", plantSpecies='" + plantSpecies + '\'' +
+                ", daysBetweenWatering=" + daysBetweenWatering +
+                ", lastDateWatered='" + lastDateWatered + '\'' +
+                '}';
     }
 }

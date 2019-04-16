@@ -18,7 +18,17 @@ public class PlantInfo extends AppCompatActivity {
         daysBetweenWateringHolder = findViewById(R.id.daysBetweenWateringHolder);
 
         Bundle bundle = getIntent().getExtras();
-        plantSpeciesHolder.setText(bundle.getString("selectedPlant"));
-        daysBetweenWateringHolder.setText(String.valueOf(23));
+        String selectedPlantString = bundle.getString("selectedPlant");
+
+        PlantCRUD plantCRUD = new PlantCRUD();
+        Plant selectedPlant = plantCRUD.read_plant(new PlantCRUD.PlantReceivedListener() {
+
+            @Override
+            public void onPlantReceived(Plant plant) {
+                plantSpeciesHolder.setText(plant.getPlantSpecies());
+                daysBetweenWateringHolder.setText(String.valueOf(plant.getDaysBetweenWatering()));
+            }
+        }, selectedPlantString);
+
     }
 }

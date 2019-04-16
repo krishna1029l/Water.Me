@@ -1,7 +1,6 @@
 package com.example.deyana.waterme_v01;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -11,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PlantCRUD {
 
@@ -29,10 +29,16 @@ public class PlantCRUD {
         plantsDatabase.child(plantSpecies).setValue(plant);
     }
 
-    public void read_plants(){
+
+    public interface PlantsReceivedListener{
+        void onPlantsReceived(ArrayList<Plant> plants);
+    }
+
+
+    public ArrayList<Plant> read_plants(final PlantsReceivedListener listener){
         final ArrayList<Plant> plants = new ArrayList<>();
-        plantsDatabase = FirebaseDatabase.getInstance().getReference("plants").child(userId);
-        plantsDatabase.addValueEventListener(new ValueEventListener() {
+        plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId);
+        plantsDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 plants.clear();
@@ -41,14 +47,51 @@ public class PlantCRUD {
                     Plant plant = userPlantsSnapshot.getValue(Plant.class);
                     plants.add(plant);
                 }
+
+                listener.onPlantsReceived(plants);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 //do nothing
             }
         });
 
-        Log.e("empty", " it is empty" + plants.isEmpty());
+        return plants;
+    }
+
+    public Plant read_plant(final PlantReceivedListener plantReceivedListener, final String plantSpecies){
+        final Plant plant = new Plant();
+        plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId).child(plantSpecies);
+        plantsDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                HashMap plantFromDatabase = (HashMap) dataSnapshot.getValue();
+
+                plant.setUserUUID(userId);
+                plant.setPlantSpecies(plantFromDatabase.get("plantSpecies").toString());
+                plant.setDaysBetweenWatering(Integer.parseInt(plantFromDatabase.get("daysBetweenWatering").toString()));
+                plant.setLastDateWatered(plantFromDatabase.get("lastDateWatered").toString());
+                plantReceivedListener.onPlantReceived(plant);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //do nothing
+            }
+        });
+
+        return plant;
+    }
+
+    public interface PlantReceivedListener{
+        void onPlantReceived(Plant plant);
+    }
+
+    public void update_plant(String plantSpecies, int daysBetweenWatering, String lastDateWatered){
+        plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId);
+        Plant plant = new Plant(plantSpecies, daysBetweenWatering, lastDateWatered);
+        plantsDatabase.child(plantSpecies).setValue(plant);
     }
 
 }

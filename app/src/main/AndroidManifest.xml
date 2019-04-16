@@ -35,7 +35,8 @@
             android:name=".AddPlantActivity"
             android:label="@string/title_activity_add_plant"
             android:theme="@style/AppTheme" />
-        <activity android:name=".PlantInfo"></activity>
+        <activity android:name=".PlantInfo" />
+        <activity android:name=".EditPlantActivity"></activity>
     </application>
 
 </manifest>
