@@ -90,10 +90,11 @@
             android:id="@+id/editPlantButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="attempt_editing"
             android:text="@string/edit_plant"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/savePlantButton"
+            app:layout_constraintBottom_toTopOf="@+id/saveChangesButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="@string/edit_plant" />

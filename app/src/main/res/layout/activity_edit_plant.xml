@@ -13,14 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/edit_plant"
+        android:text="@string/edit_plant_title"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/edit_plant" />
+        tools:text="@string/edit_plant_title" />
 
     <TextView
         android:id="@+id/textView"
@@ -30,13 +30,13 @@
         android:text="@string/plants_species"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/plantSpeciesField"
-        app:layout_constraintEnd_toStartOf="@+id/plantSpeciesField"
+        app:layout_constraintBottom_toBottomOf="@+id/editPlantSpeciesField"
+        app:layout_constraintEnd_toStartOf="@+id/editPlantSpeciesField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/plantSpeciesField"
+        android:id="@+id/editPlantSpeciesField"
         android:layout_width="202dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="102dp"
@@ -56,13 +56,13 @@
         android:text="@string/days_between_watering"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/daysBetweenWateringField"
-        app:layout_constraintEnd_toStartOf="@+id/daysBetweenWateringField"
+        app:layout_constraintBottom_toBottomOf="@+id/editDaysBetweenWateringField"
+        app:layout_constraintEnd_toStartOf="@+id/editDaysBetweenWateringField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/daysBetweenWateringField"
+        android:id="@+id/editDaysBetweenWateringField"
         android:layout_width="202dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -72,22 +72,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/plantSpeciesField" />
+        app:layout_constraintTop_toBottomOf="@+id/editPlantSpeciesField" />
 
     <Button
-        android:id="@+id/savePlantButton"
+        android:id="@+id/saveChangesButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="17dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="@string/save_plant"
+        android:onClick="attempt_saveChanges"
+        android:text="@string/save_changes"
         android:textColor="@color/color9"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/save_plant" />
+        tools:text="@string/save_changes" />
 
 </android.support.constraint.ConstraintLayout>

@@ -88,10 +88,16 @@ public class PlantCRUD {
         void onPlantReceived(Plant plant);
     }
 
+    //todo change constructors to Plant
     public void update_plant(String plantSpecies, int daysBetweenWatering, String lastDateWatered){
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId);
         Plant plant = new Plant(plantSpecies, daysBetweenWatering, lastDateWatered);
         plantsDatabase.child(plantSpecies).setValue(plant);
+    }
+
+    public void delete_plant(String plantSpecies){
+        plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId).child(plantSpecies);
+        plantsDatabase.removeValue();
     }
 
 }

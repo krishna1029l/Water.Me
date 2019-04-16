@@ -18,11 +18,12 @@ public class AddPlantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plant);
-        plantSpeciesField = findViewById(R.id.plantSpeciesField);
-        daysBetweenWateringField = findViewById(R.id.daysBetweenWateringField);
+        plantSpeciesField = findViewById(R.id.editPlantSpeciesField);
+        daysBetweenWateringField = findViewById(R.id.editDaysBetweenWateringField);
         plantCRUD = new PlantCRUD();
     }
 
+    //todo improve validation
     public void attemptSavePlant(View view){
         plantSpeciesField.setError(null);
         daysBetweenWateringField.setError(null);

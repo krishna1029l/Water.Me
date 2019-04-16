@@ -54,6 +54,7 @@ public class PlantsListFragment extends Fragment implements PlantAdapter.OnListI
         });
     }
 
+    //todo pass date also so you can display next time to water
     @Override
     public void onListItemClick(String selectedPlant) {
         Intent plantInfoIntent = new Intent(getContext(), PlantInfo.class);

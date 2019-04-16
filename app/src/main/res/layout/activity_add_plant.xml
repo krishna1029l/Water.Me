@@ -31,13 +31,13 @@
         android:text="@string/plants_species"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/plantSpeciesField"
-        app:layout_constraintEnd_toStartOf="@+id/plantSpeciesField"
+        app:layout_constraintBottom_toBottomOf="@+id/editPlantSpeciesField"
+        app:layout_constraintEnd_toStartOf="@+id/editPlantSpeciesField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/plantSpeciesField"
+        android:id="@+id/editPlantSpeciesField"
         android:layout_width="202dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="102dp"
@@ -57,13 +57,13 @@
         android:text="@string/days_between_watering"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/daysBetweenWateringField"
-        app:layout_constraintEnd_toStartOf="@+id/daysBetweenWateringField"
+        app:layout_constraintBottom_toBottomOf="@+id/editDaysBetweenWateringField"
+        app:layout_constraintEnd_toStartOf="@+id/editDaysBetweenWateringField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/daysBetweenWateringField"
+        android:id="@+id/editDaysBetweenWateringField"
         android:layout_width="202dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -73,10 +73,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/plantSpeciesField" />
+        app:layout_constraintTop_toBottomOf="@+id/editPlantSpeciesField" />
 
     <Button
-        android:id="@+id/savePlantButton"
+        android:id="@+id/saveChangesButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
