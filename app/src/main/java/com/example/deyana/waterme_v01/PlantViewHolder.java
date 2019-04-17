@@ -10,7 +10,7 @@ public class PlantViewHolder extends RecyclerView.ViewHolder implements View.OnC
     final private OnListItemClickListener onListItemClickListener;
 
 
-    public PlantViewHolder(View itemView, PlantViewHolder.OnListItemClickListener onListItemClickListener) {
+    PlantViewHolder(View itemView, PlantViewHolder.OnListItemClickListener onListItemClickListener) {
         super(itemView);
         plantSpecies = itemView.findViewById(R.id.plantSpecies);
         whenToWater = itemView.findViewById(R.id.whenToWater);
@@ -27,11 +27,11 @@ public class PlantViewHolder extends RecyclerView.ViewHolder implements View.OnC
         void onListItemClick(String plantSpecies);
     }
 
-    public void setPlantSpecies(String plantSpecies) {
+    void setPlantSpecies(String plantSpecies) {
         this.plantSpecies.setText(plantSpecies);
     }
 
-    public void setWhenToWater(String whenToWater) {
+    void setWhenToWater(String whenToWater) {
         this.whenToWater.setText(whenToWater);
     }
 }

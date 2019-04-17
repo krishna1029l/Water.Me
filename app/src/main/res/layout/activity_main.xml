@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onSignupClick"
                 android:text="@string/get_started"
-                android:textColor="@color/color9"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 tools:text="@string/get_started" />
 
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onLoginClick"
                 android:text="@string/already_a_member"
-                android:textColor="@color/color9"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 tools:text="@string/already_a_member" />
         </LinearLayout>

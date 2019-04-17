@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,8 +32,8 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), MainUserActivity.class));
         }
 
-        emailField = (EditText) findViewById(R.id.emailFieldLogin);
-        passwordField = (EditText) findViewById(R.id.passwordFieldLogin);
+        emailField = findViewById(R.id.emailFieldLogin);
+        passwordField = findViewById(R.id.passwordFieldLogin);
     }
 
 
@@ -71,16 +72,19 @@ public class LoginActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         finish();
                         startActivity(new Intent(getApplicationContext(), MainUserActivity.class));
-                    }else {
-                        //TODO implement onFailure handler for more sophisticated exception handling
-                        Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                     }
                 }
-            });
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //the error messages are good for displaying - they don't make the app less secure (than it already is)
+                    Toast.makeText(LoginActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        }
+            });;
         }
     }
 
-    //TODO handle forgotten password
+    //TODO implement forgotten password
 
     private boolean isEmailValid(String email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();

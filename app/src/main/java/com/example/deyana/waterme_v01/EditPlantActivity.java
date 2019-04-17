@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class EditPlantActivity extends AppCompatActivity {
 
@@ -23,9 +24,9 @@ public class EditPlantActivity extends AppCompatActivity {
         daysBetweenWateringField = findViewById(R.id.editDaysBetweenWateringField);
 
         Bundle bundle = getIntent().getExtras();
-        old_plantSpecies = bundle.getString("plantToEditSpecies");
-        int daysBetweenWatering = bundle.getInt("plantToEditDaysBetweenWatering");
-        lastDateWatered = bundle.getString("plantToEditLastDateWatered");
+        old_plantSpecies = bundle.getString("plantToEditSpecies", "");
+        int daysBetweenWatering = bundle.getInt("plantToEditDaysBetweenWatering", 0);
+        lastDateWatered = bundle.getString("plantToEditLastDateWatered", "");
 
         plantSpeciesField.setText(old_plantSpecies);
         daysBetweenWateringField.setText(String.valueOf(daysBetweenWatering));
@@ -67,16 +68,16 @@ public class EditPlantActivity extends AppCompatActivity {
             Plant plant_to_update = new Plant(new_plantSpecies, new_daysBetweenWatering, lastDateWatered);
 
             //the name of the species is the ID of the database record
-            //since the ID cannot be updated in the database,
-            //if the name changes, the entry is deleted and a new record
+            //the ID (name) cannot be updated in the database
+            //if the user wants to update the name, the entry is deleted and a new record
             //is inserted to replace it
-            //todo write documentation
             if(new_plantSpecies.equals(old_plantSpecies)) {
                 plantCRUD.update_plant(plant_to_update);
             } else {
                 plantCRUD.delete_plant(plant_to_update);
                 plantCRUD.create_plant(plant_to_update);
             }
+            Toast.makeText(this, "Plant saved", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(view.getContext(), MainUserActivity.class));
         }
     }

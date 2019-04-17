@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -60,16 +61,17 @@ public class AddPlantActivity extends AppCompatActivity {
 
         if(lastDateWatered.equals("")){
             LocalDate today = LocalDate.now();
-            lastDateWatered = today.minusDays(daysBetweenWatering).toString();;
+            lastDateWatered = today.minusDays(daysBetweenWatering).toString();
         }
 
         if (cancel) {
             focusView.requestFocus();
-        } else if (!cancel){
+        } else {
             //problem is that this replaces a plant if it has the same name
             Plant plant = new Plant(plantSpecies, daysBetweenWatering, lastDateWatered);
             plantCRUD.create_plant(plant);
             finish();
+            Toast.makeText(this, "Plant added", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -97,14 +99,14 @@ public class AddPlantActivity extends AppCompatActivity {
                 view.clearFocus();
             }
 
-            public String getRightMonthString(int month){
+            String getRightMonthString(int month){
                 month++;
                 if(month < 10)
                     return "0" + month;
                 return String.valueOf(month);
             }
 
-            public String getRightDayString(int day){
+            String getRightDayString(int day){
                 if(day < 10){
                     return "0" + day;
                 }

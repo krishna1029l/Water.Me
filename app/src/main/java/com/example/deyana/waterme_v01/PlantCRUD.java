@@ -1,6 +1,7 @@
 package com.example.deyana.waterme_v01;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -12,18 +13,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PlantCRUD {
+//TODO ensure app works without internet
+class PlantCRUD {
 
-    private FirebaseAuth firebaseAuth;
     private DatabaseReference plantsDatabase;
-    String userId;
+    private String userId;
 
-    public PlantCRUD() {
-        firebaseAuth = FirebaseAuth.getInstance();
+    PlantCRUD() {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         userId = firebaseAuth.getCurrentUser().getUid();
     }
 
-    public void create_plant(Plant plant){
+    void create_plant(Plant plant){
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId);
         plantsDatabase.child(plant.getPlantSpecies()).setValue(plant);
     }
@@ -34,7 +35,7 @@ public class PlantCRUD {
     }
 
 
-    public ArrayList<Plant> read_plants(final PlantsReceivedListener listener){
+    void read_plants(final PlantsReceivedListener listener){
         final ArrayList<Plant> plants = new ArrayList<>();
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId);
         plantsDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -52,15 +53,16 @@ public class PlantCRUD {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                //do nothing
+                Log.e("DatabaseError", databaseError.getMessage());
             }
         });
-
-        return plants;
     }
 
-    //todo implement error handling
-    public Plant read_plant(final PlantReceivedListener plantReceivedListener, final String plantSpecies){
+    public interface PlantReceivedListener{
+        void onPlantReceived(Plant plant);
+    }
+
+    void read_plant(final PlantReceivedListener plantReceivedListener, final String plantSpecies){
         final Plant plant = new Plant();
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId).child(plantSpecies);
         plantsDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -77,25 +79,18 @@ public class PlantCRUD {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                //do nothing
+                Log.e("DatabaseError", databaseError.getMessage());
             }
         });
-
-        return plant;
     }
 
-    public interface PlantReceivedListener{
-        void onPlantReceived(Plant plant);
-    }
-
-    public void update_plant(Plant plant){
+    void update_plant(Plant plant){
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId);
         plantsDatabase.child(plant.getPlantSpecies()).setValue(plant);
     }
 
-    public void delete_plant(Plant plant){
+    void delete_plant(Plant plant){
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId).child(plant.getPlantSpecies());
         plantsDatabase.removeValue();
     }
-
 }

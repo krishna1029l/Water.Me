@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,9 +30,8 @@ public class SignupActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), MainUserActivity.class));
         }
 
-
-        emailField = (EditText) findViewById(R.id.emailFieldSignup);
-        passwordField = (EditText) findViewById(R.id.passwordFieldSignup);
+        emailField = findViewById(R.id.emailFieldSignup);
+        passwordField = findViewById(R.id.passwordFieldSignup);
     }
 
     public void attemptSignup(View view){
@@ -73,10 +73,13 @@ public class SignupActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         finish();
                         startActivity(new Intent(getApplicationContext(), MainUserActivity.class));
-                    }else{
-                        //TODO implement onFailure handler for more sophisticated exception handling
-                        Toast.makeText(SignupActivity.this, "Could not register...Please try again.", Toast.LENGTH_SHORT).show();
                     }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //the error messages are good for displaying - they don't make the app less secure (than it already is)
+                    Toast.makeText(SignupActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -91,9 +94,5 @@ public class SignupActivity extends AppCompatActivity {
     private boolean isPasswordValid(String password) {
         //TODO use pattern matching to ensure strong password
         return password.length() > 4;
-    }
-
-    private void cancel(View view){
-
     }
 }

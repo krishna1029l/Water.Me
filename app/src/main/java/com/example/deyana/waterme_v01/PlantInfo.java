@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,6 +24,7 @@ public class PlantInfo extends AppCompatActivity {
     private PlantCRUD plantCRUD;
     private String selectedPlantString;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,7 @@ public class PlantInfo extends AppCompatActivity {
         deletePlantButton = findViewById(R.id.deletePlantButton);
 
         Bundle bundle = getIntent().getExtras();
-        selectedPlantString = bundle.getString("selectedPlantSpecies");
+        selectedPlantString = bundle.getString("selectedPlantSpecies", "");
     }
 
     @Override
@@ -60,7 +62,7 @@ public class PlantInfo extends AppCompatActivity {
     public class WaterButtonListener implements View.OnClickListener{
         Plant plant;
 
-        public WaterButtonListener(Plant plant) {
+        WaterButtonListener(Plant plant) {
             this.plant = plant;
         }
 
@@ -70,13 +72,14 @@ public class PlantInfo extends AppCompatActivity {
             plant.setLastDateWatered(new_lastWateredDate);
             plantCRUD.update_plant(plant);
             finish();
+            Toast.makeText(PlantInfo.this, "Plant watered!", Toast.LENGTH_SHORT).show();
         }
     }
 
     public class EditButtonListener implements View.OnClickListener{
         Plant plant;
 
-        public EditButtonListener(Plant plant) {
+        EditButtonListener(Plant plant) {
             this.plant = plant;
         }
 
@@ -96,7 +99,6 @@ public class PlantInfo extends AppCompatActivity {
     public void onClick(View view) {
         new AlertDialog.Builder(view.getContext())
                 .setTitle("Are you sure?")
-//                .setMessage("Are you sure you want to delete this plant?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -105,6 +107,7 @@ public class PlantInfo extends AppCompatActivity {
                         plantCRUD.delete_plant(plant);
                         dialog.dismiss();
                         finish();
+                        Toast.makeText(PlantInfo.this, "Plant deleted", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener(){

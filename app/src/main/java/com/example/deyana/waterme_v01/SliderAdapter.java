@@ -11,23 +11,22 @@ import android.widget.TextView;
 
 public class SliderAdapter extends PagerAdapter {
     private Context context;
-    private LayoutInflater layoutInflater;
 
-    public SliderAdapter(Context context){
+    SliderAdapter(Context context){
         this.context = context;
     }
 
-    public int[] slider_images = {
+    private int[] slider_images = {
             R.drawable.plant1,
             R.drawable.plant2,
     };
 
-    public String[] slider_headlines = {
+    private String[] slider_headlines = {
             "Grow a happy plant!",
             "Keep track of its condition.",
     };
 
-    public String[] slider_text = {
+    private String[] slider_text = {
             "Water.me helps you maintain your indoors plants' health by sending you reminders when your plant needs water.",
             "Add a plant to your profile to keep track of its condition. If your plant is showing signs of sickness, " +
                     "you can consult our \"Diagnose plant\" page to identify the problem and fix it.",
@@ -40,12 +39,12 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return view == (ConstraintLayout) object;
+        return view == object;
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position){
-        layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
 
         ImageView image = view.findViewById(R.id.slideImage);

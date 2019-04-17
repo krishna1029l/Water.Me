@@ -10,13 +10,11 @@ import android.widget.LinearLayout;
 
 public class MainUserActivity extends AppCompatActivity{
 
-    private LinearLayout fragmentContainer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_user);
-        fragmentContainer = findViewById(R.id.fragment_container);
+        LinearLayout fragmentContainer = findViewById(R.id.fragment_container);
         Fragment default_fragment = new PlantsListFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, default_fragment).commit();
 

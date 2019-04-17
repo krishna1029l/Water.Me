@@ -17,7 +17,6 @@ public class PlantsListFragment extends Fragment implements PlantViewHolder.OnLi
 
     private RecyclerView content;
     private PlantAdapter contentAdapter;
-    private FloatingActionButton addPlantButton;
     private PlantCRUD plantCRUD;
 
     @Nullable
@@ -29,7 +28,7 @@ public class PlantsListFragment extends Fragment implements PlantViewHolder.OnLi
         content.hasFixedSize();
         content.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        addPlantButton = view.findViewById(R.id.addPlantButton);
+        FloatingActionButton addPlantButton = view.findViewById(R.id.addPlantButton);
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

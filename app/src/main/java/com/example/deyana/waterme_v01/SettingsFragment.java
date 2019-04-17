@@ -14,13 +14,14 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SettingsFragment extends Fragment implements View.OnClickListener{
 
     private FirebaseAuth firebaseAuth;
-    private TextView signOut;
+    //TODO add more settings
+
     @Nullable
     @Override
     public View onCreateView(@Nullable LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         firebaseAuth = FirebaseAuth.getInstance();
-        signOut = view.findViewById(R.id.sign_out);
+        TextView signOut = view.findViewById(R.id.sign_out);
         signOut.setOnClickListener(this);
         return view;
     }

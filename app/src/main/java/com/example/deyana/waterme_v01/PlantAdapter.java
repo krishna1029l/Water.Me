@@ -13,7 +13,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantViewHolder>{
     private ArrayList<Plant> plants;
     final private PlantViewHolder.OnListItemClickListener onListItemClickListener;
 
-    public PlantAdapter(ArrayList<Plant> plants, PlantViewHolder.OnListItemClickListener onListItemClickListener) {
+    PlantAdapter(ArrayList<Plant> plants, PlantViewHolder.OnListItemClickListener onListItemClickListener) {
         this.plants = plants;
         this.onListItemClickListener = onListItemClickListener;
     }
