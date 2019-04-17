@@ -6,15 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import java.sql.Date;
-import java.time.LocalDate;
-
 public class EditPlantActivity extends AppCompatActivity {
 
     private EditText plantSpeciesField;
     private EditText daysBetweenWateringField;
     private PlantCRUD plantCRUD;
-    private String plantSpecies;
+    private String old_plantSpecies;
+    private String lastDateWatered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +23,11 @@ public class EditPlantActivity extends AppCompatActivity {
         daysBetweenWateringField = findViewById(R.id.editDaysBetweenWateringField);
 
         Bundle bundle = getIntent().getExtras();
-        plantSpecies = bundle.getString("plantToEditSpecies");
+        old_plantSpecies = bundle.getString("plantToEditSpecies");
         int daysBetweenWatering = bundle.getInt("plantToEditDaysBetweenWatering");
+        lastDateWatered = bundle.getString("plantToEditLastDateWatered");
 
-        plantSpeciesField.setText(plantSpecies);
+        plantSpeciesField.setText(old_plantSpecies);
         daysBetweenWateringField.setText(String.valueOf(daysBetweenWatering));
         plantCRUD = new PlantCRUD();
     }
@@ -37,38 +36,59 @@ public class EditPlantActivity extends AppCompatActivity {
         plantSpeciesField.setError(null);
         daysBetweenWateringField.setError(null);
 
-        String plantSpeciesNew = plantSpeciesField.getText().toString();
-        String daysBetweenWateringStringNew = daysBetweenWateringField.getText().toString();
+        String new_plantSpecies = plantSpeciesField.getText().toString();
+        String new_daysBetweenWateringString = daysBetweenWateringField.getText().toString();
+        int new_daysBetweenWatering = 0;
 
         boolean cancel = false;
         View focusView = null;
 
-//        if(!validateDaysBetweenWatering(daysBetweenWateringString)){
-//            daysBetweenWateringField.setError(getString(R.string.error_invalid_password));
-//            focusView = daysBetweenWateringField;
-//            cancel = true;
-//        }
+        if(old_plantSpecies.equals("")){
+            plantSpeciesField.setError(getString(R.string.error_field_required));
+            focusView = plantSpeciesField;
+            cancel = true;
+        }
 
-        int daysBetweenWatering = Integer.parseInt(daysBetweenWateringStringNew);
-
-        LocalDate localDate = LocalDate.now();
-        Date lastDateWatered = Date.valueOf(localDate.minusDays(daysBetweenWatering).toString());
+        if (new_daysBetweenWateringString.equals("")){
+            daysBetweenWateringField.setError(getString(R.string.error_field_required));
+            focusView = daysBetweenWateringField;
+            cancel = true;
+        } else if (!isValidNumber(new_daysBetweenWateringString)){
+            daysBetweenWateringField.setError(getString(R.string.error_invalid_number));
+            focusView = daysBetweenWateringField;
+            cancel = true;
+        } else{
+            new_daysBetweenWatering = Integer.parseInt(new_daysBetweenWateringString);
+        }
 
         if (cancel) {
             focusView.requestFocus();
         } else {
-            if(plantSpecies.equals(plantSpeciesNew)) {
-                plantCRUD.update_plant(plantSpecies, daysBetweenWatering, lastDateWatered.toString());
+            Plant plant_to_update = new Plant(new_plantSpecies, new_daysBetweenWatering, lastDateWatered);
+
+            //the name of the species is the ID of the database record
+            //since the ID cannot be updated in the database,
+            //if the name changes, the entry is deleted and a new record
+            //is inserted to replace it
+            //todo write documentation
+            if(new_plantSpecies.equals(old_plantSpecies)) {
+                plantCRUD.update_plant(plant_to_update);
             } else {
-                plantCRUD.delete_plant(plantSpecies);
-                plantCRUD.create_plant(plantSpeciesNew, daysBetweenWatering, lastDateWatered.toString());
+                plantCRUD.delete_plant(plant_to_update);
+                plantCRUD.create_plant(plant_to_update);
             }
             startActivity(new Intent(view.getContext(), MainUserActivity.class));
         }
     }
 
-    //todo improve this
-    public void validateInput(){
-
+    public boolean isValidNumber(String daysBetweenWateringString){
+        try{
+            Integer.parseInt(daysBetweenWateringString);
+            return true;
+        }catch (NumberFormatException e){
+            daysBetweenWateringField.setError(getString(R.string.error_invalid_password));
+        }
+        return false;
     }
+
 }

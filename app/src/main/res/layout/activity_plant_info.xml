@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:parentActivityName="com.example.myfirstapp.MainUserActivity"
-    tools:context="com.example.deyana.waterme_v01.PlantInfo">
+    tools:context="com.example.deyana.waterme_v01.PlantInfo"
+    tools:layout_editor_absoluteY="25dp">
 
 
     <TextView
@@ -18,42 +19,52 @@
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/plant_info" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="180dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/plants_species"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/plantSpeciesHolder"
         app:layout_constraintEnd_toStartOf="@+id/plantSpeciesHolder"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="180dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/days_between_watering"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/daysBetweenWateringHolder"
         app:layout_constraintEnd_toStartOf="@+id/daysBetweenWateringHolder"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/when_to_water"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/whenToWaterHolder"
+        app:layout_constraintEnd_toStartOf="@+id/whenToWaterHolder"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/plantSpeciesHolder"
-        android:layout_width="180dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="117dp"
@@ -61,36 +72,60 @@
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/daysBetweenWateringHolder"
-        android:layout_width="180dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/plantSpeciesHolder" />
 
+    <TextView
+        android:id="@+id/whenToWaterHolder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/daysBetweenWateringHolder" />
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/waterButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="@string/water_plant"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            tools:text="@string/water_plant" />
 
         <Button
             android:id="@+id/editPlantButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="attempt_editing"
             android:text="@string/edit_plant"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"

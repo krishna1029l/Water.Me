@@ -1,12 +1,11 @@
 package com.example.deyana.waterme_v01;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,10 +15,7 @@ public class MainActivity extends AppCompatActivity{
 
     private ViewPager slideViewPager;
     private LinearLayout dotsLayout;
-    private SliderAdapter sliderAdapter;
     private TextView[] dots;
-    private Button logInButton;
-    private Button signUpButton;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -33,14 +29,14 @@ public class MainActivity extends AppCompatActivity{
         }
 
         setContentView(R.layout.activity_main);
-        slideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
-        dotsLayout = (LinearLayout) findViewById(R.id.dotsLayout);
-        sliderAdapter = new SliderAdapter(this);
+        slideViewPager = findViewById(R.id.slideViewPager);
+        dotsLayout = findViewById(R.id.dotsLayout);
+
+        SliderAdapter sliderAdapter = new SliderAdapter(this);
         slideViewPager.setAdapter(sliderAdapter);
+
         addDotsIndicator(0);
         slideViewPager.addOnPageChangeListener(viewListener);
-        logInButton = (Button) findViewById(R.id.log_in);
-        signUpButton = (Button) findViewById(R.id.sign_up);
     }
 
     public void addDotsIndicator(int position){
@@ -63,6 +59,7 @@ public class MainActivity extends AppCompatActivity{
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            //do something
         }
 
         @Override
@@ -72,6 +69,7 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         public void onPageScrollStateChanged(int state) {
+            //do something
         }
     };
 

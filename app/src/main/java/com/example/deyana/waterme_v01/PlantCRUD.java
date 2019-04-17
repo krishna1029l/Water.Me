@@ -23,10 +23,9 @@ public class PlantCRUD {
         userId = firebaseAuth.getCurrentUser().getUid();
     }
 
-    public void create_plant(String plantSpecies, int daysBetweenWatering, String lastDateWatered){
+    public void create_plant(Plant plant){
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId);
-        Plant plant = new Plant(plantSpecies, daysBetweenWatering, lastDateWatered);
-        plantsDatabase.child(plantSpecies).setValue(plant);
+        plantsDatabase.child(plant.getPlantSpecies()).setValue(plant);
     }
 
 
@@ -60,6 +59,7 @@ public class PlantCRUD {
         return plants;
     }
 
+    //todo implement error handling
     public Plant read_plant(final PlantReceivedListener plantReceivedListener, final String plantSpecies){
         final Plant plant = new Plant();
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId).child(plantSpecies);
@@ -88,15 +88,13 @@ public class PlantCRUD {
         void onPlantReceived(Plant plant);
     }
 
-    //todo change constructors to Plant
-    public void update_plant(String plantSpecies, int daysBetweenWatering, String lastDateWatered){
+    public void update_plant(Plant plant){
         plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId);
-        Plant plant = new Plant(plantSpecies, daysBetweenWatering, lastDateWatered);
-        plantsDatabase.child(plantSpecies).setValue(plant);
+        plantsDatabase.child(plant.getPlantSpecies()).setValue(plant);
     }
 
-    public void delete_plant(String plantSpecies){
-        plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId).child(plantSpecies);
+    public void delete_plant(Plant plant){
+        plantsDatabase = FirebaseDatabase.getInstance().getReference("user_plants").child(userId).child(plant.getPlantSpecies());
         plantsDatabase.removeValue();
     }
 

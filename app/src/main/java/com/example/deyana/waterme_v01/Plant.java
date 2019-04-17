@@ -1,6 +1,11 @@
 package com.example.deyana.waterme_v01;
 
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import static java.time.temporal.ChronoUnit.DAYS;
+
 public class Plant {
     private String userUUID;
     private String plantSpecies;
@@ -14,23 +19,6 @@ public class Plant {
         this.plantSpecies = plantSpecies;
         this.daysBetweenWatering = daysBetweenWatering;
         this.lastDateWatered = lastDateWatered;
-    }
-
-    public Plant(String userUUID, String plantSpecies, int daysBetweenWatering) {
-        this.userUUID = userUUID;
-        this.plantSpecies = plantSpecies;
-        this.daysBetweenWatering = daysBetweenWatering;
-    }
-
-    public Plant(String userUUID, String plantSpecies, int daysBetweenWatering, String lastDateWatered) {
-        this.userUUID = userUUID;
-        this.plantSpecies = plantSpecies;
-        this.daysBetweenWatering = daysBetweenWatering;
-        this.lastDateWatered = lastDateWatered;
-    }
-
-    public String getUserUUID() {
-        return userUUID;
     }
 
     public void setUserUUID(String userUUID) {
@@ -53,12 +41,34 @@ public class Plant {
         this.daysBetweenWatering = daysBetweenWatering;
     }
 
+    public void setLastDateWatered(String lastDateWatered) {
+        this.lastDateWatered = lastDateWatered;
+    }
+
     public String getLastDateWatered() {
         return lastDateWatered;
     }
 
-    public void setLastDateWatered(String lastDateWatered) {
-        this.lastDateWatered = lastDateWatered;
+    public String whenToWater() {
+        String whenToWater = "";
+
+        LocalDate today = LocalDate.now();
+        LocalDate lastWateredDate = LocalDate.parse(getLastDateWatered(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDate whenToWaterNext = lastWateredDate.plusDays(getDaysBetweenWatering());
+
+        if(whenToWaterNext.isBefore(today))
+            whenToWater = "today";
+        else if(whenToWaterNext.equals(today))
+            whenToWater = "today";
+        else if(whenToWaterNext.isAfter(today)){
+            long daysLeftUntilWatering = DAYS.between(today, whenToWaterNext);
+            if(daysLeftUntilWatering == 1)
+                whenToWater = "tomorrow";
+            else
+                whenToWater = "in " + String.valueOf(daysLeftUntilWatering) + " days";
+        }
+
+        return whenToWater;
     }
 
     @Override

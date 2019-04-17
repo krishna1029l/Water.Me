@@ -4,10 +4,10 @@
     <color name="colorPrimary">#235C36</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>-->
-    <color name="colorPrimaryDark">#41C99A</color>
+    <color name="colorPrimaryDark">#41c99a</color>
     <color name="colorPrimary">#24465b</color>
-    <color name="white">#FFFFFF</color>
-    <color name="color3">#83F2CC</color>
+    <color name="white">#ffffff</color>
+    <color name="color3">#83f2cc</color>
     <color name="color4">#FCFCFA</color>
     <color name="color5">#F9A997</color>
     <color name="colorAccent">#fadb37</color>

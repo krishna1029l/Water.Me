@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-public class PlantsListFragment extends Fragment implements PlantAdapter.OnListItemClickListener{
+public class PlantsListFragment extends Fragment implements PlantViewHolder.OnListItemClickListener{
 
     private RecyclerView content;
     private PlantAdapter contentAdapter;
@@ -25,7 +25,7 @@ public class PlantsListFragment extends Fragment implements PlantAdapter.OnListI
     public View onCreateView(@Nullable LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_plants_list, container, false);
 
-        content = view.findViewById(R.id.plantsList);
+        content = view.findViewById(R.id.plantsListRecyclerView);
         content.hasFixedSize();
         content.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -44,7 +44,7 @@ public class PlantsListFragment extends Fragment implements PlantAdapter.OnListI
     @Override
     public void onStart() {
         super.onStart();
-        final PlantAdapter.OnListItemClickListener onListItemClickListener = this;
+        final PlantViewHolder.OnListItemClickListener onListItemClickListener = this;
         plantCRUD.read_plants(new PlantCRUD.PlantsReceivedListener() {
             @Override
             public void onPlantsReceived(ArrayList<Plant> plants) {
@@ -54,11 +54,10 @@ public class PlantsListFragment extends Fragment implements PlantAdapter.OnListI
         });
     }
 
-    //todo pass date also so you can display next time to water
     @Override
-    public void onListItemClick(String selectedPlant) {
+    public void onListItemClick(String selectedPlantSpecies) {
         Intent plantInfoIntent = new Intent(getContext(), PlantInfo.class);
-        plantInfoIntent.putExtra("selectedPlant", selectedPlant);
+        plantInfoIntent.putExtra("selectedPlantSpecies", selectedPlantSpecies);
         startActivity(plantInfoIntent);
     }
 
