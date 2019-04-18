@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Water.me</string>
+
+    <!-- Activities' titles -->
+    <string name="title_activity_login">Log in</string>
+    <string name="sign_up_title">SIGN UP</string>
+    <string name="log_in_title">LOG IN</string>
+    <string name="all_plants_title">ALL PLANTS</string>
+    <string name="add_plant_title">ADD PLANT</string>
+    <string name="plant_info_title">PLANT INFORMATION</string>
+    <string name="edit_plant_title">EDIT PLANT</string>
+    <string name="settings_fragment_title">SETTINGS</string>
+
+    <!-- Navigation elements -->
+    <string name="plants_menu_item">Plants</string>
+    <string name="settings_menu_item">Settings</string>
+
+    <!-- Strings related to adding a plant -->
+    <string name="plants_species">Plant species</string>
+    <string name="days_between_watering">Days between watering</string>
+    <string name="last_watered">Last date watered</string>
+    <string name="optional">Optional</string>
+    <string name="save_plant">Save plant</string>
+
+    <!-- Strings related to editing a plant -->
+    <string name="water_plant">Water plant</string>
+    <string name="edit_plant">Edit plant</string>
+    <string name="delete_plant">Delete plant</string>
+    <string name="when_to_water">When to water</string>
+    <string name="save_changes">Save changes</string>
+
+    <!-- Navigation elements -->
+    <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_out">Sign out</string>
+    <string name="get_started">Get started</string>
+    <string name="already_a_member">Already a member? Log in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too weak</string>
+    <string name="error_invalid_number">This value needs to be a number</string>
+
+    <!-- Strings related to settings -->
+
+    <!-- General application strings -->
+    <string name="dummy_text">Lorem ipsum dolor sit amet, pro inermis commune sententiae et.
+        Cu eros labitur sit, euismod equidem nusquam at mei, cu tota assum usu.</string>
+    <string name="title_activity_add_plant">AddPlantActivity</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="title_activity_main_user">MainUserActivity</string>
+    <string name="title_activity_settings">Settings</string>
+
+</resources>
