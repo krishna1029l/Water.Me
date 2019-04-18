@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline8"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/welcome_screen" />
+        app:srcCompat="@drawable/plant1" />
 
     <TextView
         android:id="@+id/slideHeadline"

@@ -65,6 +65,8 @@ public class EditPlantActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
+            Plant old_plant = new Plant();
+            old_plant.setPlantSpecies(old_plantSpecies);
             Plant plant_to_update = new Plant(new_plantSpecies, new_daysBetweenWatering, lastDateWatered);
 
             //the name of the species is the ID of the database record
@@ -74,7 +76,7 @@ public class EditPlantActivity extends AppCompatActivity {
             if(new_plantSpecies.equals(old_plantSpecies)) {
                 plantCRUD.update_plant(plant_to_update);
             } else {
-                plantCRUD.delete_plant(plant_to_update);
+                plantCRUD.delete_plant(old_plant);
                 plantCRUD.create_plant(plant_to_update);
             }
             Toast.makeText(this, "Plant saved", Toast.LENGTH_SHORT).show();
