@@ -51,22 +51,31 @@ public class Plant {
 
     String whenToWater() {
         String whenToWater = "";
+        int daysLeftUntilWatering = getDaysLeftUntilWatering();
+        switch (daysLeftUntilWatering){
+            case 0:
+                whenToWater = "today";
+                break;
+            case 1:
+                whenToWater = "tomorrow";
+                break;
+            default:
+                whenToWater = "in " + String.valueOf(daysLeftUntilWatering) + " days";
+        }
+        return whenToWater;
+    }
 
+    private int getDaysLeftUntilWatering() {
+        int daysLeftUntilWatering = 0;
         LocalDate today = LocalDate.now();
         LocalDate lastWateredDate = LocalDate.parse(getLastDateWatered(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         LocalDate whenToWaterNext = lastWateredDate.plusDays(getDaysBetweenWatering());
-
-        if(whenToWaterNext.isBefore(today) || whenToWaterNext.equals(today)) {
-            whenToWater = "today";
+        if (whenToWaterNext.isBefore(today) || whenToWaterNext.equals(today)) {
+            daysLeftUntilWatering = 0;
         } else if(whenToWaterNext.isAfter(today)){
-            long daysLeftUntilWatering = DAYS.between(today, whenToWaterNext);
-            if(daysLeftUntilWatering == 1)
-                whenToWater = "tomorrow";
-            else
-                whenToWater = "in " + String.valueOf(daysLeftUntilWatering) + " days";
+            daysLeftUntilWatering = ((int) DAYS.between(today, whenToWaterNext));
         }
-
-        return whenToWater;
+        return daysLeftUntilWatering;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.example.deyana.waterme_v01;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,6 +25,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
         firebaseAuth = FirebaseAuth.getInstance();
         TextView signOut = view.findViewById(R.id.sign_out);
         signOut.setOnClickListener(this);
+        TextView usernamePlaceholder = view.findViewById(R.id.usernamePlaceholder);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString(getString(R.string.username), "");
+        String greeting = "Hello " + username + "!";
+        usernamePlaceholder.setText(greeting);
         return view;
     }
 

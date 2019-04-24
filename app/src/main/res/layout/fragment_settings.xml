@@ -4,7 +4,8 @@
     android:id="@+id/settingsFragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.deyana.waterme_v01.SettingsFragment">
+    tools:context="com.example.deyana.waterme_v01.SettingsFragment"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/activityTitle"
@@ -24,15 +25,27 @@
         android:id="@+id/sign_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="31dp"
         android:padding="10dp"
         android:text="@string/sign_out"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernamePlaceholder"
+        tools:text="@string/sign_out" />
+
+    <TextView
+        android:id="@+id/usernamePlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activityTitle"
-        tools:text="@string/sign_out" />
+        app:layout_constraintTop_toBottomOf="@+id/activityTitle" />
 
 </android.support.constraint.ConstraintLayout>
