@@ -52,6 +52,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:id="@+id/usernameFieldSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/prompt_username"
+            android:inputType="textPersonName" />
+
+        <EditText
             android:id="@+id/passwordFieldSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
